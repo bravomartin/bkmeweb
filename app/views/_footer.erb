@@ -1,0 +1,22 @@
+
+<div class="clearfix"></div>
+<footer>
+	<div class="clearfix"></div>
+	
+	<section class="all">
+		<p>BKME is: 
+		<%u=[]%>
+		<%@users.each do |user|%>
+			<%u << " <a href='http:www.twitter.com/#{user[0]}' target='_blank'>@#{user[0]}</a>(#{user[1]})"%>
+		<%end%>
+		<%=u.join(", ")%> and you.
+		</p>
+	</section>
+	
+	<section id="legal">
+	<h3 id="legal-header">* NYC Department of Transportation <br />&nbsp;&nbsp;&nbsp;Traffic Regulation</h3>
+		<p>Section 4-08(e) General No Stopping Zones (Stopping, standing, and parking prohibited in 
+		specified places).  No person shall stop, stand, or park a vehicle in any bicycle lanes or within a designated bicycle lane, unless otherwise indicated by posted signs, markings or other traffic control devices, or at the direction of a law enforcement officer, or as otherwise provided in this subdivision.</p>
+	</section><!--END #legal-->
+	
+</footer>

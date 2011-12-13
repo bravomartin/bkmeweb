@@ -1,0 +1,33 @@
+<% if @user.nil? %>
+	<%= erb :notfound %>
+<% else %>
+
+	<%= erb :_header %>
+<article id="user">
+	<h2>@<%=@user["user_name"]%> <span class="total"><%=@users_hash[@user["user_name"]]%></span></h2>
+
+	<section id="gets">
+		<ul>
+		<%@gets.each do |get|%>
+			<li>
+				<a class="get" href="/get/<%=get["tweet_id"]%>">
+					<!-- <img class="map lazy" data-original="http://maps.googleapis.com/maps/api/staticmap?zoom=18&size=220x160&markers=icon:http://bkme.org/images/marker-06.png%7C<%=get["geolocation"]%>&sensor=true" src="/images/grey.png">
+								<noscript> </noscript> -->
+						<img class="map" src="http://maps.googleapis.com/maps/api/staticmap?zoom=18&size=220x160&markers=icon:http://bkme.org/images/marker-06.png%7C<%=get["geolocation"]%>&sensor=true" />
+
+					<!-- <img class="photo lazy" width="200" data-original="<%="http://img.bkme.org/gets/#{get["filename"]}"%>" src="/images/grey.png" />
+						<noscript>  </noscript>-->
+						<img class="photo" src="<%="http://img.bkme.org/gets/#{get["filename"]}"%>" />
+				</a>
+				<!-- <a class="user" href="/user/<%=get["user_name"]%>">
+									<span class="name"><%=get["user_name"]%></span>
+									<span class="get"><%=@users_hash[get["user_name"]]%></span>
+								</a> -->
+			</li>
+		<%end%>
+		</ul>
+	</section>
+
+<% end %>
+
+<%= erb :_footer %>

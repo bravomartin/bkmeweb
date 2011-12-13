@@ -1,0 +1,307 @@
+@import "fonts";
+@import "960";
+
+
+
+$bg : #85ccac;
+$dark: #356150;
+$bright : #50c960;
+$mid : #84cbab;
+$font : 14px;
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+/* 
+ =================================================
+ = ~~~~~~~~~~~~~~~~~~GLOBAL~~~~~~~~~~~~~~~~~~~~~ =
+ =================================================
+*/
+
+body {
+	line-height: 1.23;
+	font-size:$font;
+	font-family:Helvetica,Arial,Sans-Serif;
+	font-family:AvantGarde, Helvetica,Arial, Sans-serif;
+}
+
+.invisible {
+	display:none;
+}
+.clearfix {
+	height:0;
+	line-height: 0;
+	clear:both;
+}
+
+
+h2 {font-size:$font*3.5; font-weight: bold; line-height:1.5;}
+h3 {font-size:$font*1.5; font-weight: bold;}
+
+.upper {text-transform:uppercase;}
+
+a {
+	color: $mid;	
+}
+
+
+#wrap {
+	width:960px;
+	position:relative;
+	margin:0 auto;
+}	
+
+
+.lazy {
+  display: none;
+}
+
+/* 
+ ===========================
+ = ~~~~~~~~HEADER~~~~~~~~~ =
+ ===========================
+*/
+
+
+#wrap header {
+	border-bottom:1px solid black;
+	
+	h1{
+		float:left;
+		margin:10px 0 0 0;
+	}
+	
+	h3 {
+		float:right;
+		a {
+			display:inline-block;
+			text-transform:uppercase;
+			padding: 20px; 
+			background:$bright;
+			margin:20px 0 0 0;
+			color:white;
+			text-decoration:none;
+			
+		}
+	}
+	nav {
+		clear:both;
+		ul {
+			float:right;
+			li {
+				float:left;
+				margin-left:10px;
+				
+				a {
+					color:black;
+					text-decoration:none;
+					text-transform:uppercase;
+					font-size:$font*1.2;
+					letter-spacing:0.1em;
+					:hover{
+					color:$bright;
+					background:$bright;
+					
+					:hover{
+						background:$mid;
+					}
+					
+					}
+				}
+			}
+		}
+	}
+}
+
+
+
+/*
+ ================================================
+ = ~~~~~~~~~~~~~~~~~~FOOTER~~~~~~~~~~~~~~~~~~~~~ =
+ ================================================
+*/
+footer {
+	border-top:1px solid black;
+	margin-top:20px;
+	padding: 40px 0;
+	a{
+		color:$dark;
+	}
+	#legal {
+		font-size:12px;
+		h3 {
+		margin:15px 0 5px 0;
+		}
+	}
+	}
+
+
+/*
+ ================================================
+ = ~~~~~~~~~~~~~~~~~~HOME~~~~~~~~~~~~~~~~~~~~~~ =
+ ================================================
+*/
+#home {
+	#map{
+		margin-top:10px;
+		width:960px;
+		height:380px;
+	}
+}
+
+
+
+/*
+ ================================================
+ = ~~~~~~~~~~~~~~~~~~GETS~~~~~~~~~~~~~~~~~~~~~~ =
+ ================================================
+*/
+
+
+#gets {
+	margin:30px 0;
+	ul {
+		margin-right:-30px;
+	}
+	li{
+		display:block;
+		float:left;
+		position:relative;
+		width:197px;
+		height:155px;
+		
+		
+		a.get{
+			display:block;
+			width:170px;
+			height:130px;
+			overflow:hidden;
+			
+			.photo {
+			
+			}
+			
+		}
+		a.user {
+			color:white;
+			text-decoration:none;
+			position:absolute;
+			top:0;
+			right:25px;
+			height:35px;
+			width:200px;
+			
+			.get {
+				display:block;
+				position:absolute;
+				top:-5px;
+				right:-10px;
+				padding:2px;
+				border:3px solid $bright;
+				background:$bright;
+				border-radius:18px;
+				
+			}
+			.name {
+				padding:0 0 0 3px;
+				float:right;
+				background:$bright;
+				color:white;
+				padding-right:35px;
+				
+			}
+			
+		}
+		
+	}
+
+}
+
+
+/*
+ ================================================
+ = ~~~~~~~~~~~~~~~~ USER PAGE ~~~~~~~~~~~~~~~~~ =
+ ================================================
+*/
+
+#user {
+	h2 {
+		position:relative;
+		span {
+				color:white;
+				margin-top:-5px;
+				padding:5px 9px;
+				border:3px solid $bright;
+				background:$bright;
+				border-radius:38px;
+		}
+	}
+
+}
+
+/*
+ ================================================
+ = ~~~~~~~~~~~~~~~~~~GET PAGE ~~~~~~~~~~~~~~~~~ =
+ ================================================
+*/
+
+
+
+.get {
+	
+	#map {
+			width: 450px;
+			height: 380px;
+		}
+}
+
+
+
+

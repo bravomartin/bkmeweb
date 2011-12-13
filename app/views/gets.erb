@@ -1,0 +1,20 @@
+<%if @get.nil?%>
+	<%= erb :notfound %>
+<%else%>
+<%= erb :_header %>
+
+<article class="get">
+	<h2><%=@get["address"][0]%></h2>
+	<h3><a href="/user/<%=@get["user_name"]%>">
+		@<%=@get["user_name"]%>
+		<span><%=@users_hash[@get["user_name"]]%></span>
+	</a></h3>
+	<figure><img src="<%="http://img.bkme.org/gets/#{@get["filename"]}"%>"></figure>
+	<figure id="map" class="get"  zoom="17" url="<%=url_for "/", :full%>" center="<%=@get["geolocation"]%>"></figure>
+	<section id=info>
+		<p>text: <%=@get["text"]%><br>
+		geolocation: <%=@get["geolocation"]%>
+		</p>
+	</section>
+</article>
+<%end%>
