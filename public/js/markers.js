@@ -217,7 +217,8 @@ $(document).ready(function() {
 	console.log("map")
 	MYMAP.init('#map', myLatLng, parseInt(zoom));
 	baseurl = $("#map").attr("url");
-	 var data_url = baseurl+"data/";
+	query = $("#map").attr("query");
+	 var data_url = baseurl+query;
 	$.ajax({
 		type: "GET",
 		url: data_url,

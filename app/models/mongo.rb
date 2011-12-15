@@ -10,7 +10,7 @@ module MongoBase
 		def find(search)
 			if search == :all
 				#return all
-				data = @db.collection("records").find.to_a
+				data = @db.collection("records").find.to_a.sort{|a,b| b["created_at_i"]<=>a["created_at_i"]}
 				return nil_or_array(data)
 			else
 				return find_with_criteria(search)

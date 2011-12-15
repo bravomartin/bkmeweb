@@ -14,7 +14,8 @@ end
 
 get '/' do
   @gets = MongoBase.find :all
-  @gets = @gets.first(10)
+
+  @gets = @gets.first(30)
   erb :home
 end
 

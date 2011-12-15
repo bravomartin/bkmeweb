@@ -1,7 +1,17 @@
 <%= erb :_header %>
 <article id="home">
-	<div id="map" class="home" zoom="12" url="<%=url_for "/", :full%>"></div>
-	
+	<section id="top">
+	<div id="welcome">
+		<div id="map-wrap">
+		<span>
+			BKME.ORG is a platform that channels the power of cyclists to reclaim bikelanes from vehicles.
+			<br />
+			<a href="/join">Join la Velolución!</a>
+		</span>
+		</div>
+	</div>
+	<div id="map" class="home" zoom="12" query="data/" url="<%=url_for "/", :full %>"></div>
+	</section>
 	
 	
 	<section id="gets">
@@ -11,9 +21,9 @@
 				<a class="get" href="/get/<%=get["tweet_id"]%>">
 					<!-- <img class="map lazy" data-original="http://maps.googleapis.com/maps/api/staticmap?zoom=18&size=220x160&markers=icon:http://bkme.org/images/marker-06.png%7C<%=get["geolocation"]%>&sensor=true" src="/images/grey.png">
 								<noscript> </noscript> -->
-						<img class="map" src="http://maps.googleapis.com/maps/api/staticmap?zoom=18&size=220x160&markers=icon:http://bkme.org/images/marker-06.png%7C<%=get["geolocation"]%>&sensor=true" />
+						<img class="map" src="http://maps.googleapis.com/maps/api/staticmap?zoom=18&size=170x190&markers=icon:http://bkme.org/images/marker-06.png%7C<%=get["geolocation"]%>&sensor=true" />
 
-					<!-- <img class="photo lazy" width="200" data-original="<%="http://img.bkme.org/gets/#{get["filename"]}"%>" src="/images/grey.png" />
+					<!-- <img class="photo lazy" width="170" data-original="<%="http://img.bkme.org/gets/#{get["filename"]}"%>" src="/images/grey.png" />
 						<noscript>  </noscript>-->
 						<img class="photo" src="<%="http://img.bkme.org/gets/#{get["filename"]}"%>" />
 				</a>
@@ -21,6 +31,7 @@
 					<span class="name"><%=get["user_name"]%></span>
 					<span class="get"><%=@users_hash[get["user_name"]]%></span>
 				</a>
+				<a class="time" href="/get/<%=get["tweet_id"]%>"><%=get["created_at"].strftime("%m/%d/%Y %I:%M%p")%></a>
 			</li>
 		<%end%>
 		</ul>

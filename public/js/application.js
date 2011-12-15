@@ -14,13 +14,17 @@ $(document).ready(function(){
 	
 	
 	$(".get").hover(function(){
-		console.log("im over")
 		$(this).find(".map").hide();
 		$(this).find(".photo").show();
 	}, function(){
 		$(this).find(".photo").hide();
 		$(this).find(".map").show();
 		
+	});
+	
+	
+	$("#welcome").click(function(){
+		$(this).slideUp();
 	});
 	
 

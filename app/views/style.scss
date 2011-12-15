@@ -1,5 +1,5 @@
 @import "fonts";
-@import "960";
+//@import "960";
 
 
 
@@ -7,6 +7,7 @@ $bg : #85ccac;
 $dark: #356150;
 $bright : #50c960;
 $mid : #84cbab;
+$grey : #c6c6c6;
 $font : 14px;
 
 /* http://meyerweb.com/eric/tools/css/reset/ 
@@ -84,11 +85,15 @@ body {
 
 h2 {font-size:$font*3.5; font-weight: bold; line-height:1.5;}
 h3 {font-size:$font*1.5; font-weight: bold;}
+h4 {font-size:$font*1.5; font-weight: bold;}
 
 .upper {text-transform:uppercase;}
 
 a {
 	color: $mid;	
+}
+a:hover {
+	color:$bright!important;
 }
 
 
@@ -123,16 +128,20 @@ a {
 		a {
 			display:inline-block;
 			text-transform:uppercase;
-			padding: 20px; 
+			padding: 15px;
+			border: 5px solid $bright; 
 			background:$bright;
 			margin:20px 0 0 0;
 			color:white;
 			text-decoration:none;
+			}
+		a:hover{
+			background:white!important;
 			
 		}
 	}
-	nav {
-		clear:both;
+	 nav.main {
+			clear:both;
 		ul {
 			float:right;
 			li {
@@ -171,13 +180,13 @@ footer {
 	border-top:1px solid black;
 	margin-top:20px;
 	padding: 40px 0;
+	font-size:12px;
 	a{
 		color:$dark;
 	}
 	#legal {
-		font-size:12px;
 		h3 {
-		margin:15px 0 5px 0;
+		margin:40px 0 5px 0;
 		}
 	}
 	}
@@ -189,11 +198,37 @@ footer {
  ================================================
 */
 #home {
-	#map{
+	position:relative;
+	#map, #welcome{
 		margin-top:10px;
 		width:960px;
 		height:380px;
 	}
+	#welcome {
+		cursor:pointer;
+		position:absolute;
+		margin:0px;
+		z-index:2;
+		font-size:$font*3;
+		font-weight:bold;
+		color: white;
+		#map-wrap {
+			width:700px;
+			margin-top:80px;
+			}
+		span{
+			background:$bright;
+			width:700px;
+		}
+		a {color:white;
+			text-decoration:none;
+			}
+		a:hover {
+				background:white!important;
+			}
+			
+	}
+	
 }
 
 
@@ -215,13 +250,13 @@ footer {
 		float:left;
 		position:relative;
 		width:197px;
-		height:155px;
+		height:200px;
 		
 		
 		a.get{
 			display:block;
 			width:170px;
-			height:130px;
+			height:160px;
 			overflow:hidden;
 			
 			.photo {
@@ -243,21 +278,25 @@ footer {
 				position:absolute;
 				top:-5px;
 				right:-10px;
-				padding:2px;
-				border:3px solid $bright;
+				font-weight:normal;
+				padding:3px;
+				border:2px solid #444;
 				background:$bright;
 				border-radius:18px;
-				
 			}
 			.name {
 				padding:0 0 0 3px;
 				float:right;
 				background:$bright;
 				color:white;
-				padding-right:35px;
-				
+				padding-right:20px;
 			}
-			
+		}
+		
+		a.time{
+			font-size:12px;
+			color:$grey;
+			text-decoration:none;
 		}
 		
 	}
@@ -273,16 +312,27 @@ footer {
 
 #user {
 	h2 {
+		
 		position:relative;
+		margin:0 0 10px 0;
+		a {
+			color:black;
+			text-decoration:none;
+		}
 		span {
 				color:white;
-				margin-top:-5px;
-				padding:5px 9px;
+				margin-top:-10px;
+				padding:5px 7px;
 				border:3px solid $bright;
 				background:$bright;
 				border-radius:38px;
 		}
 	}
+	#map {
+		width:960px;
+		height:300px;
+	}
+	
 
 }
 
@@ -294,14 +344,131 @@ footer {
 
 
 
-.get {
-	
-	#map {
-			width: 450px;
-			height: 380px;
+#get {
+	.header {
+		margin-bottom: 10px;
+	h3 {float:right}
+	h4 {float:left}
+	}
+
+	#photo {
+		width:460px;
+		float:left;
+		img {
+		width:460px;
+		
 		}
+	}
+	#map {
+			width: 460px;
+			height: 380px;
+			float:right;
+		}
+		
+	#info {
+		h3 {
+		border-bottom:1px solid black;
+		}
+		p {
+		padding:6px 0; 
+		border-bottom:1px solid $grey;
+		span {
+			display:block;
+			float:left;
+			width: 100px;
+			}
+		}
+		width: 460px;
+		float:right;
+	}
+}
+
+
+/*
+ ================================================
+ = ~~~~~~~~~~~~~~~~~~MAP PAGE ~~~~~~~~~~~~~~~~~ =
+ ================================================
+*/
+
+#map-activity {
+	section.map{ 
+		border-top:1px solid black;
+		h2 {
+		float:left;
+		line-height:1;
+		margin-top:10px;
+		}
+		#map-nav{
+				float:right;
+				margin-top:30px;
+		}
+		a {
+			font-size:$font*1;
+			margin-left:15px;
+			line-height:1;
+			padding-bottom: -4px;
+			color:black;
+			text-decoration:none;
+		}
+		a.selected {border-bottom:2px solid black}
+	}
+	#map{
+		width:960px;
+		height:450px;
+		margin-top:-10px;
+		}
+
+}
+
+#ranking{
+	h2{
+	border-bottom:1px solid black;
+	margin-bottom:20px;
+	
+	}
+	ul{
+	margin-right:-90px;
+	}
+	.car {
+		width:260px;
+		height:200px;
+		float:left;
+		margin-right:90px;
+		:hover{
+			background:$bright;
+			.count{
+				color:white;
+			}
+			.user{color:black;}
+		}
+		a{
+			text-decoration:none;
+			display:block;
+			padding:10px;
+			.count {
+				font-size: $font*10;
+				color:black;
+				line-height:1;
+			}
+			.user {
+				font-size: $font*2;
+			}
+			
+		}
+	}
+
 }
 
 
 
+/*
+ ================================================
+ = ~~~~~~~~~~~~~~~~~~ABOUT    ~~~~~~~~~~~~~~~~~ =
+ ================================================
+*/
 
+
+#about {
+	h3 {margin-bottom:10px; font-size:$font*2}
+	p{margin-bottom:10px}
+}

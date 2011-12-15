@@ -3,18 +3,26 @@
 <%else%>
 <%= erb :_header %>
 
-<article class="get">
+<article id="get">
+	<section class="header">
 	<h2><%=@get["address"][0]%></h2>
-	<h3><a href="/user/<%=@get["user_name"]%>">
-		@<%=@get["user_name"]%>
-		<span><%=@users_hash[@get["user_name"]]%></span>
-	</a></h3>
-	<figure><img src="<%="http://img.bkme.org/gets/#{@get["filename"]}"%>"></figure>
-	<figure id="map" class="get"  zoom="17" url="<%=url_for "/", :full%>" center="<%=@get["geolocation"]%>"></figure>
-	<section id=info>
-		<p>text: <%=@get["text"]%><br>
-		geolocation: <%=@get["geolocation"]%>
-		</p>
+		<h4><%=@get["created_at"].strftime("%m/%d/%Y %I:%M%p")%></h4>
+		<h3>gotten by <a href="/user/<%=@get["user_name"]%>">
+			@<%=@get["user_name"]%></a>
+			<span><%=@users_hash[@get["user_name"]]%></span>
+		</h3>
+		<div class="clearfix"></div>
+	</section>
+	<figure id="photo"><img src="<%="http://img.bkme.org/gets/#{@get["filename"]}"%>"></figure>
+	<figure id="map" class="get"  zoom="18" query="data/" url="<%=url_for "/", :full%>" center="<%=@get["geolocation"]%>"></figure>
+
+	<section id="info">
+		<h3>Info</h3>
+		<p><span>address:</span> <%=@get["address"][0]%></p>
+		<p><span>geolocation:</span> <%=@get["geolocation"]%></p>
+		<p><span>time:</span> <%=@get["created_at"].strftime("%m/%d/%Y %I:%M%p")%></p>
+		<p><span>text:</span> <%=@get["text"]%></p>
+		
 	</section>
 </article>
 <%end%>
