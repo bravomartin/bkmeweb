@@ -9,10 +9,10 @@ function InfoBox(opts) {
   google.maps.OverlayView.call(this);
   this.latlng_ = opts.latlng;
   this.map_ = opts.map;
-  this.offsetVertical_ = -130;
-  this.offsetHorizontal_ = -110;
-  this.height_ = 80;
-  this.width_ = 220;
+  this.offsetVertical_ = -180;
+  this.offsetHorizontal_ = -60;
+  this.height_ = 150;
+  this.width_ = 120;
   this.content_ = opts.content;
 
   var me = this;
@@ -76,17 +76,17 @@ InfoBox.prototype.createElement = function() {
     div = this.div_ = document.createElement("div");
     div.style.border = "0px none";
     div.style.position = "absolute";
-    div.style.background = "#3c6152";
+    div.style.background = "#50c960";
     div.style.width = this.width_ + "px";
     div.style.height = this.height_ + "px";
     var contentDiv = document.createElement("div");
-    contentDiv.style.padding = "0px"
+    contentDiv.style.padding = "3px"
     contentDiv.innerHTML = this.content_;
     var arrowImg = document.createElement("img");
     arrowImg.style.width = "14px";
     arrowImg.style.height = "13px";
-    arrowImg.src = baseurl+"images/arrow.png";
-    arrowImg.style.margin = "0 0 0 103px";
+    arrowImg.src = baseurl+"images/arrow2.png";
+    arrowImg.style.margin = "0 0 0 52px";
     contentDiv.appendChild(arrowImg);
 
     var topDiv = document.createElement("div");
@@ -95,7 +95,7 @@ InfoBox.prototype.createElement = function() {
     closeImg.style.width = "14px";
     closeImg.style.height = "13px";
     closeImg.style.cursor = "pointer";
-    closeImg.src = baseurl+"images/close.png";
+    closeImg.src = baseurl+"images/close2.png";
     topDiv.appendChild(closeImg);
 
     function removeInfoBox(ib) {
@@ -254,6 +254,7 @@ MYMAP.placeMarkers = function() {
 
     $.each(reports, function(i,report){
 			var author = report["user_name"];
+			var imgurl = report["filename"]
 			var geo = report["geolocation"].split(","); 
 			var tweet = report["text"]; 
 			var exp = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/i;
@@ -281,7 +282,7 @@ MYMAP.placeMarkers = function() {
 				if (tempInfoBox != null) {
 					tempInfoBox.setMap(null);
 				}
-				var car ='<div class="infoBub"><p class="marker"><strong><a href="http://twitter.com/#!/' +author+'" target="_blank">'+author+'</a> </strong><br/>' + tweetformatted +'</p></div>';
+				var car ='<div class="infoBub"><a href="/user/' +author+'"><img src="http://img.bkme.org/'+imgurl+'"<br /><p class="marker">by '+author+'</a></div>';
 				var infoBox = new InfoBox({latlng: marker.getPosition(), map: MYMAP.map, content: car});
 				tempInfoBox = infoBox;
 				});

@@ -9,7 +9,7 @@ before do
   @users_hash = MongoBase.hash_users()
   @users = MongoBase.list_users()
   @app = Dragonfly[:images].configure_with(:imagemagick)
-  
+  @root = url_for "/", :full
 end
 
 get '/' do
