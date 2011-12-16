@@ -1,5 +1,6 @@
 
 before do
+  cache_control :public, :must_revalidate, :max_age => 60
 	config = {:server => "dbh84.mongolab.com",
 	              :port => 27847,
 								:db => "bkme",
