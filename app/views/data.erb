@@ -4,21 +4,21 @@
 
 <p>This is how you use it:</p>
 <p>To request every GET, request ALL, like this:<br/>
-	<a href="http://bkme.org/data/all">http://bkme.org/data/all</a>
+	<a href="<%=@root%>/data/all">http://bkme.org/data/all</a>
 	</p>
 	<p>To request all the GETs for a particular period:<br/>
 		http://bkme.org/data/all/{period}<br/>
 		possible values are: "lasthour", "lastday", "lastweek", "lastmonth", "ever".<br/>
-		e.g: <a href="http://bkme.org/data/all/lastmonth">http://bkme.org/data/lastmonth</a>
+		e.g: <a href="<%=@root%>/data/all/lastmonth">http://bkme.org/data/lastmonth</a>
 	</p>
 	<p>To request the GET from a particular user, request that user, like this:<br/>
 		http://bkme.org/data/{user}
-		e.g: <a href="http://bkme.org/data/lovelikerobots">http://bkme.org/data/lovelikerobots</a>
+		e.g: <a href="<%=@root%>/data/lovelikerobots">http://bkme.org/data/lovelikerobots</a>
 	</p>
 	<p>You can still filter any user by the same periods:<br/>
 		http://bkme.org/data/{user}/{period}<br/>
 		possible values are: "lasthour", "lastday", "lastweek", "lastmonth", "ever".<br/>
-		e.g: <a href="http://bkme.org/data/brvmrtn/lastmonth">http://bkme.org/brvmrtn/lastmonth</a>
+		e.g: <a href="<%=@root%>/data/brvmrtn/lastmonth">http://bkme.org/brvmrtn/lastmonth</a>
 	</p>
 </article>
 
