@@ -235,6 +235,7 @@ $(document).ready(function() {
 
 MYMAP.init = function(selector, latLng, zoom) {
 	var myOptions = {
+		scrollwheel: false,
 		zoom:zoom,
 		center: latLng,
 		mapTypeId: google.maps.MapTypeId.ROADMAP

@@ -6,6 +6,8 @@
 $bg : #85ccac;
 $dark: #356150;
 $bright : #50c960;
+$brighter : lighten($bright, 20%);
+
 $mid : #84cbab;
 $grey : #c6c6c6;
 $font : 14px;
@@ -312,25 +314,43 @@ footer {
 
 #user {
 	h2 {
-		
+		font-size:$font*4;
 		position:relative;
-		margin:0 0 10px 0;
+		margin:0;
+		width:460px;
+		float:left;
 		a {
 			color:black;
 			text-decoration:none;
+			line-height:1;
 		}
 		span {
-				color:white;
-				margin-top:-10px;
+				color:black;
 				padding:5px 7px;
-				border:3px solid $bright;
-				background:$bright;
-				border-radius:38px;
 		}
+		
+	}
+	nav.stats {
+		float:left;
+		border-top:1px solid black;
+		
+		li{
+		font-size:$font*2;
+		width:460px;
+		border-bottom:1px solid $grey;
+		padding:3px 0;
+		height:35px;
+		a {color:black; text-decoration:none; display:block; float:left}
+		span {float:right;}
+		}
+		li:last-child{border-bottom:1px solid black;}
+		li.ever {font-weight:bold}
 	}
 	#map {
-		width:960px;
-		height:300px;
+		float:right;
+		width:460px;
+		height:350px;
+		margin-top:10px;
 	}
 	
 
@@ -366,6 +386,7 @@ footer {
 		}
 		
 	#info {
+		margin-top:10px;
 		h3 {
 		border-bottom:1px solid black;
 		}
@@ -428,10 +449,11 @@ footer {
 	}
 	ul{
 	margin-right:-90px;
+	margin-bottom:20px;
 	}
 	.car {
 		width:260px;
-		height:200px;
+		height:190px;
 		float:left;
 		margin-right:90px;
 		:hover{
@@ -444,14 +466,19 @@ footer {
 		a{
 			text-decoration:none;
 			display:block;
-			padding:10px;
+			height:100%;
 			.count {
 				font-size: $font*10;
 				color:black;
 				line-height:1;
+				padding:10px 10px 0 10px;
 			}
 			.user {
+				padding:0 10px 10px 10px;
 				font-size: $font*2;
+				line-height:1;
+				color:$brighter;
+				
 			}
 			
 		}
@@ -470,5 +497,7 @@ footer {
 
 #about {
 	h3 {margin-bottom:10px; font-size:$font*2}
-	p{margin-bottom:10px}
+	p{margin-bottom:10px;
+		font-size:$font*1.5;
+		}
 }

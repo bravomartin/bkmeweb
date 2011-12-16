@@ -43,29 +43,15 @@ module MongoBase
       return users_array.sort{|a,b| b[1]<=>a[1]}
     end
     
-		def update(yasi)
-			stringify_keys(yasi)
-			# handle author first
-			if yasi["author"]
-				stringify_keys(yasi["author"])
-				author = @db.collection("authors").find_one(yasi["author"])
-				# if the author does not exist, then create one 
-				unless author
-					author = @db.collection("records").save(yasi["author"])
-				end
-				yasi["author"] = author
-			end
-
-			# save with the yasi with the author
-			# once again, please validate before save
-			# this is for educational purpose only.
-			@db.collection("records").save(yasi)
+		def update(query)
+			stringify_keys(query)
+			
 		end
 
-		def delete(id)
-			victim = @db.collection("records").find_one(Mongo::ObjectID.from_string(id))
-			@db.collection("records").remove(victim) if victim
-		end
+    # def delete(id)
+    #   victim = @db.collection("records").find_one(Mongo::ObjectID.from_string(id))
+    #   @db.collection("records").remove(victim) if victim
+    # end
 
 
 

@@ -14,7 +14,7 @@
 		<div class="clearfix"></div>
 	</section>
 	<figure id="photo"><img src="<%="http://img.bkme.org/gets/#{@get["filename"]}"%>"></figure>
-	<figure id="map" class="get"  zoom="18" query="data/" url="<%=url_for "/", :full%>" center="<%=@get["geolocation"]%>"></figure>
+	<figure id="map" class="get"  zoom="18" query="data/all/" url="<%=url_for "/", :full%>" center="<%=@get["geolocation"]%>"></figure>
 
 	<section id="info">
 		<h3>Info</h3>

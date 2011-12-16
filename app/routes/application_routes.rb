@@ -19,25 +19,19 @@ get '/' do
   erb :home
 end
 
-get '/about/?' do
-  erb :about
+["/about", "/join", "/faq", "/activity"].each do |path|
+  get path+"/?:period?" do
+    erb path[1..-1].to_sym
+  end
 end
 
-get '/join/?' do
-  erb :join
-end
-get '/faq/?' do
-  erb :faq
-end
-get '/map/?' do
-  erb :map
-end
 
 
 
 get '/user/:user_name' do
-  @user = MongoBase.find_one(:user_name => params[:user_name])
   @gets = MongoBase.find(:user_name => params[:user_name])
+  @stats = how_many(params[:user_name]).to_a.reverse
+  @user = MongoBase.find_one(:user_name => params[:user_name])
   erb :user_profile
 end
 
@@ -71,27 +65,44 @@ end
 
 
 # REPORTS DATA
-get '/data/?' do
-  content_type :json
+get '/data/?:user?/?:period?/?' do
   response = []
   users =[]
+  periods = ["lasthour","lastday","lastweek","lastmonth","ever"]
   
-  if params[:user] 
-    data = MongoBase.find(:user_name => params[:user])
-    return "@#{params[:user]} hasn't gotten any cars yet." if data.nil?
+  if params[:user] or params[:period]
+    content_type :json
+    if params[:user] == "all"
+      data = MongoBase.find :all 
+    elsif periods.include? params[:user]
+        return "Error! you must indicate the user or \"all\" before defining the period.
+Like this: http://www.bkme.org/data/{user}/{period}
+        "
+    else
+      data = MongoBase.find(:user_name => params[:user])
+      return "@#{params[:user]} hasn't gotten any cars yet." if data.nil?
+    end
     
-  elsif params[:period]
-       period = params[:period]
-       return "not serving period=#{period} yet"
+    if periods.include? params[:period]
+      data = filter_by_period(data,params[:period])
+    else 
+      data = data
+    end
+    
+    data.each do |d|
+      d.delete("response")
+      d.delete("_id")
+      response << d
+    end
+    response.to_json
+
   else 
-    data = MongoBase.find :all 
+    "this is the world"
+    erb :data
   end
+      
   
-  data.each do |d|
-    d.delete("response")
-    d.delete("_id")
-    response << d
-  end
-  response.to_json
+  
+
 end
 

@@ -1,0 +1,31 @@
+<%= erb :_header %>
+<article id="map-activity">
+	<section id="ranking">
+		<h2>Racers</h2>
+		<ul>
+		<% @users.each do |u| %>
+			<%= "<li class='car'>
+					<a href='/user/#{u[0]}'>
+					<p class='count'>#{u[1]}</p>
+					<p class='user'>@#{u[0]}</p>
+					</a>
+				</li>" %>
+		<% end %>
+		<div class="clearfix"></div>
+	</ul>
+	</section>
+
+	<section class="map">
+		<h2>MAP</h2>
+		<nav id="map-nav">
+			<a href="#" class="selected">all times</a><a href="#">last month</a><a href="#">last week</a><a href="#">today</a>
+		</nav>	
+		<div class="clearfix"></div>
+		<div id="map" class="home" zoom="12" query="data/all/<%=params[:period]%>" url="<%=url_for "/", :full %>"></div>
+	</section>
+
+
+
+</article>
+
+<%= erb :_footer %>

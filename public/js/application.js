@@ -1,14 +1,15 @@
 
 $(document).ready(function(){
   	$(window).load(function(){
-		var img_w = $(".photo").width(180);
-		var img_h = $(".photo").height();
-		var img_w = $(".photo").width();
+		$(".photo").width(180);
+		var img_h = $("img.photo").height();
+		var img_w = $("img.photo").width();
 		var w = $(".get").width();
 		var h = $(".get").height();
 		
-		$(".get > .photo").show().css("margin-top",h/2-img_h/2);
-		$(".get > .photo").css("margin-left",w/2-img_w/2).hide();
+		
+		$(".get > .photo").show().css("margin-top",(h-img_h)/2);
+		$(".get > .photo").css("margin-left",(w-img_w)/2).hide();
 
 	});
 	

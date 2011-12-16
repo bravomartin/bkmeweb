@@ -4,10 +4,17 @@
 
 	<%= erb :_header %>
 <article id="user">
-	<h2><a href="http://www.twitter.com/<%=@user["user_name"]%>">@<%=@user["user_name"]%></a> <span class="total"><%=@users_hash[@user["user_name"]]%></span></h2>
+	<h2><a href="http://www.twitter.com/<%=@user["user_name"]%>">@<%=@user["user_name"]%></a> 
+		<!-- <span class="total"><%=@users_hash[@user["user_name"]]%></span> -->
+		</h2>
+		<div id="map" class="home" zoom="12" query="data/<%=@user["user_name"]%>" url="<%=url_for "/", :full %>"></div>
 	
-	<div id="map" class="home" zoom="12" query="data?user=<%=@user["user_name"]%>" url="<%=url_for "/", :full %>"></div>
-
+	<nav class="stats"><ul>
+	<%@stats.each do |s|%>
+	<li class="<%=s[0]%>"><a href=""><%=s[0]%></a><span><%=s[1]%></span></li>
+	<%end%>
+	</ul></nav>
+	<div class="clearfix"></div>
 	<section id="gets">
 		<ul>
 		<%@gets.each do |get|%>
