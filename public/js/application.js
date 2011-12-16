@@ -1,15 +1,21 @@
 
 $(document).ready(function(){
   	$(window).load(function(){
-		$(".photo").width(180);
-		var img_h = $("img.photo").height();
-		var img_w = $("img.photo").width();
-		var w = $(".get").width();
-		var h = $(".get").height();
-		
-		
-		$(".get > .photo").show().css("margin-top",(h-img_h)/2);
-		$(".get > .photo").css("margin-left",(w-img_w)/2).hide();
+		$(".get").each(function(i){
+		var img_h = $(this).find(".photo").height();
+		var img_w = $(this).find(".photo").width();		
+		var w = $(this).width();
+		var h = $(this).height();
+		if (img_h/img_w > 1) {
+			$(this).find(".photo").width(w);
+			img_h = $(this).find(".photo").height();
+			$(this).find(".photo").css("margin-top",(h-img_h)/2).hide();
+		} else {
+			$(this).find(".photo").height(h);
+			img_w = $(this).find("img.photo").width();
+			$(this).find(".photo").css("margin-left",(w-img_w)/2).hide();
+		}
+		});
 
 	});
 	

@@ -13,7 +13,7 @@
 		</h3>
 		<div class="clearfix"></div>
 	</section>
-	<figure id="photo"><img src="<%="http://img.bkme.org/gets/#{@get["filename"]}"%>"></figure>
+	<figure id="photo"><img src="<%="http://img.bkme.org/#{@get["filename"]}"%>"></figure>
 	<figure id="map" class="get"  zoom="18" query="data/all/" url="<%=url_for "/", :full%>" center="<%=@get["geolocation"]%>"></figure>
 
 	<section id="info">
@@ -21,8 +21,9 @@
 		<p><span>address:</span> <%=@get["address"][0]%></p>
 		<p><span>geolocation:</span> <%=@get["geolocation"]%></p>
 		<p><span>time:</span> <%=@get["created_at"].strftime("%m/%d/%Y %I:%M%p")%></p>
-		<p><span>text:</span> <%=@get["text"]%></p>
+		<p><span>text:</span> <a href="http://www.twitter.com/#!/<%=@get["user_name"]%>/status/<%=@get["tweet_id"]%>"><%=@get["text"]%></a></p>
 		
 	</section>
 </article>
 <%end%>
+<%= erb :_footer %>
