@@ -548,9 +548,18 @@ footer {
 */
 
 
-#about {
+#about, #join {
+	section {margin-bottom:40px; clear:both;}
 	h3 {margin-bottom:10px; font-size:$font*2}
-	p{margin-bottom:10px;
+	p{
+		margin-bottom:10px;
+		width:700px;
 		font-size:$font*1.5;
 		}
+	figure {
+		float:right;
+		iframe {
+			width:160px!important;
+		}
+	}
 }
