@@ -267,7 +267,7 @@ MYMAP.placeMarkers = function() {
 			var point = new google.maps.LatLng(parseFloat(lat),parseFloat(lng));			
 			
 			var greenMarker = new google.maps.MarkerImage(
-			  baseurl+'images/marker-06.png',
+			  baseurl+'images/marker.png',
 				new google.maps.Size(20,28)
 			);
 			

@@ -15,7 +15,7 @@ end
 get '/' do
   @gets = MongoBase.find :all
 
-  @gets = @gets.first(30)
+  @gets = @gets.first(40)
   erb :home
 end
 
@@ -38,9 +38,27 @@ end
 
 get '/get/:tweet_id' do
   @get = MongoBase.find_one(:tweet_id => params[:tweet_id])
-  erb :gets
+  if !@get.nil?
+    erb :single_get
+  else
+    erb :notfound
+  end
 end
 
+get '/gets/?:page?' do
+  @gets = MongoBase.find :all
+  @total = (@gets.count/30).ceil
+  if params[:page].nil?
+      @gets = @gets.first(30)
+      erb :gets
+  else
+    @page = params[:page].to_i
+    return erb :notfound if @page == 0
+    @gets = @gets[@page*30, 30]
+    return erb :notfound if @gets.nil?
+    erb :gets
+  end
+end
 
 
 
@@ -56,7 +74,6 @@ end
 #---------------------------------------
 
 not_found do
-  content_type :html
   erb :notfound
 end
 

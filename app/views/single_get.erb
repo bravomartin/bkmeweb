@@ -1,0 +1,25 @@
+<%= erb :_header %>
+
+<article id="get">
+	<section class="header">
+	<h2><%=@get["address"][0]%></h2>
+		<h4><%=@get["created_at"].strftime("%m/%d/%Y %I:%M%p")%></h4>
+		<h3>gotten by <a href="/user/<%=@get["user_name"]%>">
+			@<%=@get["user_name"]%></a>
+			<!-- <span><%=@users_hash[@get["user_name"]]%></span> -->
+		</h3>
+		<div class="clearfix"></div>
+	</section>
+	<figure id="photo"><img src="<%="http://img.bkme.org/#{@get["filename"]}"%>"></figure>
+	<figure id="map" class="get"  zoom="18" query="data/all/" url="<%=url_for "/", :full%>" center="<%=@get["geolocation"]%>"></figure>
+
+	<section id="info">
+		<h3>Info</h3>
+		<p><span>address:</span> <%=@get["address"][0]%></p>
+		<p><span>geolocation:</span> <%=@get["geolocation"]%></p>
+		<p><span>time:</span> <%=@get["created_at"].strftime("%m/%d/%Y %I:%M%p")%></p>
+		<p><span>text:</span> <a href="http://www.twitter.com/#!/<%=@get["user_name"]%>/status/<%=@get["tweet_id"]%>" target="_blank"><%=@get["text"]%></a></p>
+		
+	</section>
+</article>
+<%= erb :_footer %>

@@ -202,7 +202,7 @@ footer {
 #home {
 	position:relative;
 	#map, #welcome{
-		margin-top:10px;
+		margin:10px 0 30px 0;
 		width:960px;
 		height:380px;
 	}
@@ -243,7 +243,10 @@ footer {
 
 
 #gets {
-	margin:30px 0;
+	margin:0 0 30px 0;
+	h2 span {
+		float:right;
+	}
 	ul {
 		margin-right:-30px;
 	}
@@ -295,6 +298,11 @@ footer {
 				padding-right:20px;
 			}
 		}
+		a.user:hover {
+			.get, .name {
+				background:$brighter
+			}
+		}
 		
 		a.time{
 			font-size:12px;
@@ -306,6 +314,23 @@ footer {
 
 }
 
+/*  PAGINATION */
+.pagination {
+	clear:both;
+	height:40px;
+	font-size: $font*3;
+	font-weight:bold;
+	a {
+		color:black;
+		text-decoration:none;
+	}
+	a:hover {
+		color:$bright;
+		text-decoration:none;
+	}
+	.older {float: right;}
+	.newer {float: left;}
+	}
 
 /*
  ================================================
@@ -315,10 +340,9 @@ footer {
 
 #user {
 	h2 {
-		font-size:$font*4;
 		position:relative;
 		margin:0;
-		width:460px;
+		width:370px;
 		float:left;
 		a {
 			color:black;
@@ -337,10 +361,10 @@ footer {
 		
 		li{
 		font-size:$font*2;
-		width:460px;
+		width:370px;
 		border-bottom:1px solid $grey;
 		padding:3px 0;
-		height:35px;
+		height:40px;
 		a {color:black; text-decoration:none; display:block; float:left}
 		span {float:right;}
 		}
@@ -349,9 +373,9 @@ footer {
 	}
 	#map {
 		float:right;
-		width:460px;
-		height:350px;
-		margin-top:10px;
+		width:565px;
+		height:300px;
+		margin:10px 0 30px 0;
 	}
 	
 
