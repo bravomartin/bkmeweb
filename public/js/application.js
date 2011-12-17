@@ -31,7 +31,12 @@ $(document).ready(function(){
 	
 	
 	$("#welcome").click(function(){
-		$(this).slideUp();
+		// $(this).slideUp();
+		$(this).animate({
+		    left: '-=700',
+		  }, 500, function() {
+		    // Animation complete.
+		  });
 	});
 	
 
