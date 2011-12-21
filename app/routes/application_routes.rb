@@ -1,11 +1,13 @@
 
 before do
   cache_control :public, :must_revalidate, :max_age => 60
-	config = {:server => "dbh84.mongolab.com",
-	              :port => 27847,
-								:db => "bkme",
-								:user =>"bkme",
-								:password => "youwerebiked1"}
+	config = {:server => ENV['MONGOLAB_SERVER'] ||  MONGOLAB_SERVER,
+	              :port => ENV['MONGOLAB_PORT'] || MONGOLAB_PORT ,
+								:user =>ENV['MONGOLAB_USER'] || MONGOLAB_USER ,
+								:password => ENV['MONGOLAB_PASS'] || MONGOLAB_PASS,
+								:db => "bkme"
+								}
+								
 	MongoBase.connect config
   @users_hash = MongoBase.hash_users()
   @users = MongoBase.list_users()
