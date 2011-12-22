@@ -18,6 +18,6 @@ group :development do
   gem 'dm-sqlite-adapter'
 end
 
-group :production do 
+group :production, :test do 
   gem 'dm-postgres-adapter'
 end

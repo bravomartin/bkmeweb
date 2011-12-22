@@ -1,6 +1,6 @@
 
 before do
-  cache_control :public, :must_revalidate, :max_age => 60
+  cache_control :public, :must_revalidate, :max_age => 60*60
 	config = {:server => ENV['MONGOLAB_SERVER'] ||  MONGOLAB_SERVER,
 	              :port => ENV['MONGOLAB_PORT'] || MONGOLAB_PORT ,
 								:user =>ENV['MONGOLAB_USER'] || MONGOLAB_USER ,
@@ -11,8 +11,8 @@ before do
 	MongoBase.connect config
   @users_hash = MongoBase.hash_users()
   @users = MongoBase.list_users()
-  @app = Dragonfly[:images].configure_with(:imagemagick)
   @root = url_for "/", :full
+  
 end
 
 get '/' do
