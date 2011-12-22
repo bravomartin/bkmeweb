@@ -3,9 +3,6 @@ MONGOLAB_PASS="youwerebiked1"
 MONGOLAB_PORT=27847 
 MONGOLAB_SERVER="dbh84.mongolab.com"
 
-
-
-
-
-
-
+#aws credentials
+AWS_ID = 'AKIAJQPOWZKALWX23IBQ'
+AWS_SECRET = '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'

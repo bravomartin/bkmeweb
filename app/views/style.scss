@@ -92,7 +92,8 @@ h4 {font-size:$font*1.5; font-weight: bold;}
 .upper {text-transform:uppercase;}
 
 a {
-	color: $mid;	
+	color: black;
+	
 }
 a:hover {
 	color:$bright!important;
@@ -320,7 +321,7 @@ footer {
 			
 		}
 		a.user {
-			color:white;
+			color:black;
 			text-decoration:none;
 			position:absolute;
 			top:0;
@@ -340,19 +341,17 @@ footer {
 				border:2px solid white;
 				background:$bright;
 				border-radius:18px;
-				color:black;
 			}
 			.name {
 				padding:0 0 0 3px;
 				float:right;
 				background:$bright;
-				color:white;
 				padding-right:20px;
 			}
 		}
 		a.user:hover {
 			.get, .name {
-				background:$brighter
+				color:white;
 			}
 		}
 		
