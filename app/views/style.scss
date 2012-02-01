@@ -573,18 +573,35 @@ footer {
 */
 
 
-#about, #join {
+#about, #join, #faq {
 	section {margin-bottom:40px; clear:both;}
-	h3 {margin-bottom:10px; font-size:$font*2}
+	h3 {margin:20px 0 10px; font-size:$font*2.5; color:$bright;}
+	h4 {margin:10px 0; font-size:$font*2;}
+	h5 {font-size:$font*1.5; font-weight:bold; margin-bottom:5px; }
 	p{
 		margin-bottom:10px;
-		width:700px;
+		width:600px;
 		font-size:$font*1.5;
 		}
+	em {
+		color: $bright;
+	}
 	figure {
 		float:right;
 		iframe {
 			width:160px!important;
 		}
 	}
+	
+	aside {
+		float:right; 
+		height:310px; 
+		width:200px;
+		
+		img {
+			width:200px;
+		}
+	
+	}
+	
 }

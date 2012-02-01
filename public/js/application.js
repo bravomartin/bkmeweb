@@ -20,6 +20,14 @@ $(document).ready(function(){
 	});
 	
 	
+	$(".cycle").cycle({
+	    fx:     'scrollLeft',
+		next: '.cycle',
+		timeout: 4000,
+		speed: 200,
+		pause: 1
+	});
+	
 	$(".get").hover(function(){
 		$(this).find(".map").hide();
 		$(this).find(".photo").show();
