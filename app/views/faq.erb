@@ -1,9 +1,28 @@
 <%= erb :_header %>
 <article id="faq">
-<h2 class="upper">F.A.Q.</h2>
+	<h2 id="F.A.Q." class="upper">F.A.Q.</h2>
+	<section id="geolocation">
+		<h3>How do I activate the geolocation on my device?</h3>
+		<p>Activate the geolocation in your device is fairly easy, but is done differently for each system and twitter client. Here we'll explain how to do it in the most commonly used devices and applications.</p>
+		<section id="ios">
+		<h4>iPhone / iOS</h4>
+		<figure><img src="images/faq/ios_authorize.png" alt="Authorize your app to access your location."/></figure>
 
-<section>
-	<p>Ask something.</p>
+		<p>First thing you should know is that any app you're using will have to be authorized to access your location. Most applications ask for it the first time you use them. Check it's on by going to <em>Settings > Location Services</em>. This will not turn it on, it will only make it available for the app to access it.</p>
+		
+			<section id="iostwitter">
+				<h5>Twitter for iPhone</h5>
+					<figure><img src="images/faq/twitterios_02.png" alt="Turning off geolocation."/></figure>
+					<figure><img src="images/faq/twitterios_01.png" alt="Turn on location for your tweet."/></figure>					
+					
+				
+				<p>When sending a GET, you should make sure the arrow icon <img src="/images/faq/twitterios_arrow.gif"/> is color blue. <em>Tap once to turn it on</em>.</p>
+				<p>It will stay <em>on</em> for the following tweets. You can always deactivate by tapping again and then tapping on <em>turn geolocation off</em>. Just <em>remember to turn it back on</em> when GETTING your next car.</p>
+				<p>If it doesn't work, make sure Twitter is authorized in your <a href="#ios">Location Settings</a> and try again.</p>
+		
+				
+			</section>
+		</section>	
 	</section>
 	
 </article>

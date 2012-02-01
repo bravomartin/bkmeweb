@@ -1,5 +1,7 @@
 */.DS_Store
 .DS_Store
+_OLD
+_OLD/*
 .sass-cache/
 keys.rb
 Gemfile.lock
