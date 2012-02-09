@@ -193,6 +193,7 @@ InfoBox.prototype.panMap = function() {
 
 var // Global Variables
 reports = [],
+tickets = [],
 tempInfoBox,
 baseurl,
 MYMAP = {
@@ -228,7 +229,19 @@ $(document).ready(function() {
 			MYMAP.placeMarkers();
 		}
 	});
+	
+	$.ajax({
+		type: "GET",
+		url: "/nycdata/bikelanes_geo.json",
+		dataType: "json",
+		success : function(data) {
+			tickets = data;
+			MYMAP.ticketsData();
+		}
+	});
+	
 	MYMAP.bikeLanes();
+
 	}
 });
 
@@ -249,6 +262,31 @@ MYMAP.bikeLanes = function() {
 	var georssLayer = new google.maps.KmlLayer('http://www.nycbikemaps.com/wp-content/plugins/download-monitor/download.php?id=Download+NYC+Bike+Maps+Google+Earth+Network+Link', {preserveViewport:true});
 	georssLayer.setMap(MYMAP.map);
 }
+
+
+
+MYMAP.ticketsData = function() {   
+ 	
+	$.each(tickets, function(i,ticket){
+ 		var lat = ticket["LAT"];
+ 		var lng = ticket["LON"];
+ 		var point = new google.maps.LatLng(parseFloat(lat),parseFloat(lng));
+ 		
+ 		var ticketMarker = new google.maps.MarkerImage(
+ 			 baseurl+'images/ticket_marker1.png',
+ 			  new google.maps.Size(10, 10)
+ 		);
+ 		
+		var marker = new google.maps.Marker({
+ 			position: point,
+ 		    map: MYMAP.map,
+  			icon: ticketMarker
+		});	
+ 		
+		
+    });
+}
+
 
 MYMAP.placeMarkers = function() {
 
@@ -286,5 +324,12 @@ MYMAP.placeMarkers = function() {
 				var infoBox = new InfoBox({latlng: marker.getPosition(), map: MYMAP.map, content: car});
 				tempInfoBox = infoBox;
 				});
-    });		
+   	
+
+	});		
 }
+
+
+
+
+
