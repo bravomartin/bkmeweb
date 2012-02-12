@@ -69,8 +69,8 @@ end
 #   SASS
 #---------------------------------------
 
-get '/stylesheets/style.css' do
-  scss :style
+get '/stylesheets/:stylesheet.css' do
+  scss params[:stylesheet].to_sym
 end
 
 #   404

@@ -1,30 +1,61 @@
 <%= erb :_header %>
 <article id="faq">
 	<h2 id="F.A.Q." class="upper">F.A.Q.</h2>
+	<section id="what">
+		<h3>What is BKME.ORG?</h3>
+
+		<p>BKME.ORG is a platform that channels the power of cyclists to reclaim bike lanes from vehicles.</p>
+		<p>We provide a way for cyclists to record bike lane violations collectively and in realtime.</p>
+		<p>We collect and place this data on a map in order to bring out problematic violation hotspots.</p>
+		<p>We intend this initially for cyclist awareness and ultimately to be acted upon and resolved by the local government.</p>
+		<p>We make the demand for action clear by juxtaposing CYCLIST DATA with existing REGULATION DATA from NYC OPEN BIKELANE TICKETS.</p>
+		<p>We think it is important to note that this system is both modular and extendable to other causes and cities.
+		<p/>
+		
+		
+	</section>
+	
+	
 	<section id="geolocation">
 		<h3>How do I activate the geolocation on my device?</h3>
-		<p>Activate the geolocation in your device is fairly easy, but is done differently for each system and twitter client. Here we'll explain how to do it in the most commonly used devices and applications.</p>
+		<p>Activate the geolocation in your device is easy. Here we'll explain how to do it in the most commonly used devices and applications.</p>
 		<section id="ios">
 		<h4>iPhone / iOS</h4>
 		<figure><img src="images/faq/ios_authorize.png" alt="Authorize your app to access your location."/></figure>
 
-		<p>First thing you should know is that any app you're using has to be authorized to be able to access your location. Most applications ask you for permission the first time you open them. If you're not sure, check it's allowed on the <em>Settings > Location Services</em> menu. Doing this will not share your location, it will only make it available for you to share it with that app.</p>
+		<p>Authorize your app. </p>
+		<p>Every application will ask you for permission the first time you open it. If you're not sure, check it's allowed on the <em>Settings > Location Services</em> menu. <br/>
+			Doing this will not share your location, it will only make possible for you to share it through the app.</p>
 		
 			<section id="iostwitter">
 				<h5>Twitter for iPhone</h5>
-					<aside class="cycle">
-					
-					<figure><img src="images/faq/twitterios_01.png" alt="Turn on location for your tweet."/></figure>					
-					<figure><img src="images/faq/twitterios_02.png" alt="Turning off geolocation."/></figure>
-					</aside>
+				<figure><img src="images/faq/twitterios_01.png" alt="Turn on location for your tweet."/></figure>					
 				
-				<p>When sending a GET, you should make sure the arrow icon <img src="/images/faq/twitterios_arrow.gif"/> is colored blue. <em>Tap once to turn it on</em>.</p>
-				<p>It will stay <em>on</em> for the following tweets. To deactivate it tap again on the <img src="/images/faq/twitterios_arrow.gif"/> and then tapping on <em>Turn geolocation off</em>. Just <em>remember to turn it back on</em> when GETTING your next car.</p>
-				<p>If it doesn't work, make sure Twitter is authorized in your <a href="#ios">Location Settings</a> and try again.</p>
-		
-				
+				<p>Before you send the tweet to #BKME for the first time, <em>tap the icon</em> <img src="/images/faq/twitterios_arrow.gif"/>. It will turn blue.</p>
+				<p>Usually you will have to do this only once. It will be enabled by default for the following tweets.</p>
 			</section>
+			
+			<section id="iosother">
+				<h5>Other Twitter Apps</h5>
+				
+				<p>Look for the geolocation icon <span class="icon geo"></span> and make sure it's turned on.</p>
+				<p>Usually you will have to do this only once. It will be enabled by default for the following tweets.
+				.</p>
+			</section>
+			
+		</section>
+		<section id="android">
+		<h4>Android</h4>
+		
+				<p>Before you send the first tweet to #BKME, look for the geolocation icon that should look like this <span class="icon geo"></span> .  Tap on it once to turn it on.</p>
+				<p>Usually you will have to do this only once. It will be enabled by default for the following tweets.</p>				
 		</section>	
+	</section>
+	
+	<section>
+		<p><a href="mailto:us@bkme.org">Get in touch with us</a> if you have any other questions.</p>
+		<p>BKME Team</p>
+		
 	</section>
 	
 </article>
