@@ -232,7 +232,7 @@ $(document).ready(function() {
 	
 	$.ajax({
 		type: "GET",
-		url: "/nycdata/bikelanes_geo.json",
+		url: baseurl+"nycdata/bikelanes_geo.json",
 		dataType: "json",
 		success : function(data) {
 			tickets = data;
