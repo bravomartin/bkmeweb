@@ -218,10 +218,14 @@ a:hover {
 	
 	.bigappsbanner {
 		display:inline-table;
-		width:250px;
-		height:74px;
-		background: url(../images/vote.gif) no-repeat left top;
-		margin: 28px 0 0 15%;
+		width:246px;
+		height:53px;
+		background: url(../images/bigapps.gif) no-repeat left top;
+		margin: 28px 0 0 10%;
+		&:hover{
+		background: url(../images/bigapps_h.gif) no-repeat left top;
+		
+		}
 	}
 	
 	h3 {
@@ -683,14 +687,15 @@ footer {
 
 #about, #join, #faq {
 	section {margin-top:40px; clear:both;}
-	h3 {margin:20px 0 30px 0; font-size:$font*2.5; color:$bright;}
+	h3 {margin:20px 0 30px 0; font-size:$font*2.5; color:$bright; }
 	h4 {margin:10px 0; font-size:$font*2;}
 	h5 {font-size:$font*1.5; font-weight:bold; margin-bottom:5px; }
+	h3.upper {color:black;}
 	h3 a {
-		color:$bright;
 		text-decoration:none;
 		&:hover{
 		color:black;
+		
 		}
 	}
 	.number {
