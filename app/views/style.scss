@@ -172,6 +172,8 @@ a:hover {
 
 	#about figure, #join figure, #faq figure {
 	width:100%;
+	margin-bottom:1em;
+	text-align:center!important;
 	}
 }
 
@@ -697,7 +699,7 @@ footer {
 	}
 	p, ul{
 		margin-bottom:1em;
-		max-width:600px;
+		max-width:700px;
 		font-size:$font*1.5;
 		li {
 			list-style: url(../images/bullet.png) inside;
