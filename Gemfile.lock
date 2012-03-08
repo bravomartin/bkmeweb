@@ -63,6 +63,7 @@ DEPENDENCIES
   emk-sinatra-url-for
   json
   mongo
+  rack
   rack-cache
   sass
   sinatra

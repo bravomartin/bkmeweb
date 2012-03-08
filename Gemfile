@@ -1,6 +1,7 @@
 source :rubygems
 
 gem 'sinatra'
+gem 'rack'
 gem 'sass'
 
 gem 'dm-core'
