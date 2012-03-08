@@ -77,7 +77,7 @@ post '/receive/?' do
   content_type :json
 
   
-  return "received!".to_json
+  return params.to_json
   #return params.inspect
 
 #   now = Time.new
