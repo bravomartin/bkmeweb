@@ -74,8 +74,10 @@ get '/receive/?' do
 end
 
 post '/receive/?' do
+  content_type :json
+
   
-  return "received!"
+  return "received!".to_json
   #return params.inspect
 
 #   now = Time.new
