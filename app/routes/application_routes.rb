@@ -98,7 +98,7 @@ post '/receive/?' do
       :secret_access_key => ENV['AWS_SECRET'] || AWS_SECRET
     )
   
-  AWS::S3::S3Object.store('test/'+name+'.jpg', open( Base64.decode64(imgBase64) ), 'img.bkme.org', :access => :public_read)
+  AWS::S3::S3Object.store('test/'+name+'.jpg', Base64.decode64(imgBase64), 'img.bkme.org', :access => :public_read)
 
   return {:filename => "http://img.bkme.org/test/#{name}.jpg"}.to_json
 
