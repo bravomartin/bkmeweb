@@ -69,12 +69,15 @@ end
 
 get '/receive/?' do
 
-  params.inspect
+  return params.inspect
 
 end
 
 post '/receive/?' do
-  params.inspect
+  
+  return "received!"
+  #return params.inspect
+
 #   now = Time.new
 #   id = now.to_a[0..5].reverse().join()
 #   time = params[:time]
