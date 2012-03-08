@@ -77,31 +77,30 @@ post '/receive/?' do
   content_type :json
 
   
-  return params.to_json
-  #return params.inspect
+  # return params.to_json
 
-#   now = Time.new
-#   id = now.to_a[0..5].reverse().join()
-#   time = params[:time]
-#   img = params[:image]
-#   lat = params[:lat]
-#   lon = params[:lon]
-#   name = "#{id}_lat:#{lat}_lon:#{lon}"
-
+  now = Time.new
+  # time = params[:timestamp]
+  time = now.to_a[0..5].reverse().join()
+  imgBase64 = params[:image]
+  lat = params[:geolocation][:lat]
+  lon = params[:geolocation][:lon]
+  name = "#{time}_lat:#{lat}_lon:#{lon}"
 
 
-# File.open('shipping_label.gif', 'wb') do|f|
-#   f.write(Base64.decode64(params[:img]))
-# end
 
-#   AWS::S3::Base.establish_connection!(
-#       :access_key_id     => ENV['AWS_ID'] || AWS_ID,
-#       :secret_access_key => ENV['AWS_SECRET'] || AWS_SECRET
-#     )
+File.open('tempfile.jpg', 'wb') do|f|
+  f.write(Base64.decode64(params[:img]))
+end
+
+  # AWS::S3::Base.establish_connection!(
+  #     :access_key_id     => ENV['AWS_ID'] || AWS_ID,
+  #     :secret_access_key => ENV['AWS_SECRET'] || AWS_SECRET
+  #   )
   
-#   AWS::S3::S3Object.store('test/#{name}.jpg', params[img], 'img.bkme.org', :access => :public_read)
+  AWS::S3::S3Object.store('test/#{name}.jpg', imgBase64, 'img.bkme.org', :access => :public_read)
 
-#   "http://img.bkme.org/test/#{name}.jpg"
+  return {:filename => "http://img.bkme.org/test/#{name}.jpg"}.to_json
 
 end
 
