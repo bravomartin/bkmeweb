@@ -67,6 +67,10 @@ get '/gets/?:page?' do
   end
 end
 
+get '/receive/?' do
+
+  puts params.inspect
+end
 
 post '/receive/?' do
   puts params.inspect
