@@ -89,14 +89,14 @@ post '/receive/?' do
 
 
 
-File.open('tempfile.jpg', 'wb') do|f|
-  f.write(Base64.decode64(params[:img]))
-end
+# File.open('tempfile.jpg', 'wb') do|f|
+#   f.write(Base64.decode64(params[:img]))
+# end
 
-  # AWS::S3::Base.establish_connection!(
-  #     :access_key_id     => ENV['AWS_ID'] || AWS_ID,
-  #     :secret_access_key => ENV['AWS_SECRET'] || AWS_SECRET
-  #   )
+  AWS::S3::Base.establish_connection!(
+      :access_key_id     => ENV['AWS_ID'] || AWS_ID,
+      :secret_access_key => ENV['AWS_SECRET'] || AWS_SECRET
+    )
   
   AWS::S3::S3Object.store('test/#{name}.jpg', imgBase64, 'img.bkme.org', :access => :public_read)
 
