@@ -69,7 +69,7 @@ end
 
 
 post '/receive/?' do
-  pp params
+  puts params.inspect
 #   now = Time.new
 #   id = now.to_a[0..5].reverse().join()
 #   time = params[:time]
