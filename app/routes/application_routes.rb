@@ -22,7 +22,7 @@ end
 get '/' do
   @gets = MongoBase.find :all
 
-  @gets = @gets.first(40)
+  @gets = @gets.first(12)
   erb :home
 end
 
@@ -35,7 +35,7 @@ end
 
 
 
-get '/user/:user_name' do
+get '/user/:user_name/?' do
   @gets = MongoBase.find(:user_name => params[:user_name])
   @stats = how_many(params[:user_name]).to_a.reverse
   @user = MongoBase.find_one(:user_name => params[:user_name])
@@ -43,7 +43,7 @@ get '/user/:user_name' do
 end
 
 
-get '/get/:tweet_id' do
+get '/get/:tweet_id/?' do
   @get = MongoBase.find_one(:tweet_id => params[:tweet_id])
   if !@get.nil?
     erb :single_get

@@ -66,15 +66,15 @@ module MongoBase
 			  if  search["user_name"] == "all"
 		      result = hash_users()
 		    else
-				  result = @reports.find(search).to_a
+				  result = @reports.find(search).to_a.sort{|a,b| b["created_at_i"]<=>a["created_at_i"]}
 				end
 				return nil_or_array(result)
 			elsif search["tweet_id"]
 			  search["tweet_id"] = search["tweet_id"].to_i
-			  result = @reports.find(search).to_a
+			  result = @reports.find(search).to_a.sort{|a,b| b["created_at_i"]<=>a["created_at_i"]}
 				return nil_or_array(result)
 			else
-				result = @db.collection("records").find(search).to_a
+				result = @db.collection("records").find(search).to_a.sort{|a,b| b["created_at_i"]<=>a["created_at_i"]}
 				return nil_or_array(result)
 			end
 		end

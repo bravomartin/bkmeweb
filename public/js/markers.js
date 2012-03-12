@@ -110,7 +110,7 @@ InfoBox.prototype.createElement = function() {
     div.appendChild(contentDiv);
     div.style.display = 'none';
     panes.floatPane.appendChild(div);
-    this.panMap();
+    // this.panMap();
   } else if (div.parentNode != panes.floatPane) {
     // The panes have changed.  Move the div.
     div.parentNode.removeChild(div);
@@ -208,7 +208,9 @@ $(document).ready(function() {
 	var geolocation = $("#map").attr("center");
 
 	
-	var myLatLng = new google.maps.LatLng(40.71668818761883,-73.99094581604004);    
+//	var myLatLng = new google.maps.LatLng(40.71668818761883,-73.99094581604004);  
+  var myLatLng = new google.maps.LatLng(40.720391,-73.989925);  
+
 	if (geolocation) {
 		var geo = geolocation.split(",");
 		myLatLng = new google.maps.LatLng(geo[0],geo[1]);
@@ -252,37 +254,37 @@ MYMAP.init = function(selector, latLng, zoom) {
 		zoom:zoom,
 		center: latLng,
 		mapTypeId: google.maps.MapTypeId.ROADMAP
-	}
+  };
 	this.map = new google.maps.Map($(selector)[0], myOptions);
 	this.bounds = new google.maps.LatLngBounds();
-}
+};
 
 MYMAP.bikeLanes = function() {
 	//add the bike lane .kml file
 	var georssLayer = new google.maps.KmlLayer('http://www.nycbikemaps.com/wp-content/plugins/download-monitor/download.php?id=Download+NYC+Bike+Maps+Google+Earth+Network+Link', {preserveViewport:true});
 	georssLayer.setMap(MYMAP.map);
-}
+};
 
 
 
-MYMAP.ticketsData = function() {   
- 	
+MYMAP.ticketsData = function() {
+	
 	$.each(tickets, function(i,ticket){
- 		var lat = ticket["LAT"];
- 		var lng = ticket["LON"];
- 		var point = new google.maps.LatLng(parseFloat(lat),parseFloat(lng));
- 		
- 		var ticketMarker = new google.maps.MarkerImage(
- 			 baseurl+'images/ticket_marker1.png',
- 			  new google.maps.Size(10, 10)
- 		);
- 		
+		var lat = ticket["LAT"];
+		var lng = ticket["LON"];
+		var point = new google.maps.LatLng(parseFloat(lat),parseFloat(lng));
+		
+		var ticketMarker = new google.maps.MarkerImage(
+    baseurl+'images/ticket_marker1.png',
+			new google.maps.Size(10, 10)
+		);
+		
 		var marker = new google.maps.Marker({
- 			position: point,
- 		    map: MYMAP.map,
-  			icon: ticketMarker
-		});	
- 		
+			position: point,
+      map: MYMAP.map,
+      icon: ticketMarker
+		});
+
 		
     });
 }
@@ -291,22 +293,23 @@ MYMAP.ticketsData = function() {
 MYMAP.placeMarkers = function() {
 
     $.each(reports, function(i,report){
-			var author = report["user_name"];
-			var imgurl = report["filename"]
-			var geo = report["geolocation"].split(","); 
-			var tweet = report["text"]; 
-			var exp = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/i;
-			var tweetformatted = tweet.replace(exp,"<a target='_blank' href='$1'>$1</a>"); 
+			var author = report["user_name"],
+        id = report["tweet_id"],
+        imgurl = report["filename"],
+        geo = report["geolocation"].split(","),
+        tweet = report["text"],
+        exp = /(\b(https?|ftp|file):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/i;
+			var tweetformatted = tweet.replace(exp,"<a target='_blank' href='$1'>$1</a>");
 			var url = report["url"];
 //			re = /=>"(.+?)"/
 //			var urls = re.exec(report["url"]);
 			// create a new LatLng point for the marker
 			var lat = geo[0];
 			var lng = geo[1];
-			var point = new google.maps.LatLng(parseFloat(lat),parseFloat(lng));			
+			var point = new google.maps.LatLng(parseFloat(lat),parseFloat(lng));
 			
 			var greenMarker = new google.maps.MarkerImage(
-			  baseurl+'images/marker.png',
+        baseurl+'images/marker.png',
 				new google.maps.Size(20,28)
 			);
 			
@@ -317,17 +320,17 @@ MYMAP.placeMarkers = function() {
 			});
 
 			google.maps.event.addListener(marker, 'click', function() {
-				if (tempInfoBox != null) {
+				if (tempInfoBox) {
 					tempInfoBox.setMap(null);
 				}
-				var car ='<div class="infoBub"><a href="/user/' +author+'"><img src="http://img.bkme.org/'+imgurl+'"<br /><p class="marker">by '+author+'</a></div>';
+				var car ='<div class="infoBub"><a href="/get/' +id+'"><img src="http://img.bkme.org/'+imgurl+'"<br /><p class="marker">by '+author+'</a></div>';
 				var infoBox = new InfoBox({latlng: marker.getPosition(), map: MYMAP.map, content: car});
 				tempInfoBox = infoBox;
 				});
-   	
+  
 
-	});		
-}
+	});
+};
 
 
 

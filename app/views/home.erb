@@ -10,12 +10,13 @@
 		</span>
 		</div>
 	</div>
-	<div id="map" class="home" zoom="12" query="data/all" url="<%=url_for "/", :full %>"></div>
+	<div id="map" class="home" zoom="15" query="data/all" url="<%=url_for "/", :full %>"></div>
 	</section>
 	<section id="legend"><span class="ticket icon"></span>parking tickets in bikelanes<span class="get icon"></span>#BKME gets</section>
 	
 	
 	<section id="gets">
+		<h3>Last GETS </h3>
 		<ul>
 		<%@gets.each do |get|%>
 			<li>
@@ -37,8 +38,41 @@
 		<%end%>
 		</ul>
 	</section>
-	<nav class="pagination">
-	<a class="older" href="/gets/2">older</a>
-	</nav>
+	<section id="twitterfeed">
+		<h3>Activity</h3>
+		<div id="feedwrap">
+		<script charset="utf-8" src="http://widgets.twimg.com/j/2/widget.js"></script>
+			<script>
+			new TWTR.Widget({
+			version: 2,
+			type: 'profile',
+			rpp: 12,
+			interval: 30000,
+			width: 'auto',
+			height: 'auto',
+			theme: {
+			shell: {
+			  background: '#ffffff',
+			  color: '#000000'
+			},
+			tweets: {
+			  background: '#ffffff',
+			  color: '#000000',
+			  links: '#50c960'
+			}
+			},
+			features: {
+			scrollbar: true,
+			loop: false,
+			live: true,
+			behavior: 'all'
+			}
+			}).render().setUser('bkme_ny').start();
+			</script>
+		</div>
+		<a href="http://www.twitter.com/bkme_ny">more tweets...</a>
+	</section>
+
+	
 </article>
 <%= erb :_footer %>
