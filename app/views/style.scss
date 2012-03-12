@@ -122,7 +122,7 @@ body {
 
 h2 {font-size:$font*3.5; font-weight: bold; line-height:1.2;}
 h3 {font-size:$font*1.5; font-weight: bold;}
-h4 {font-size:$font*1.5; font-weight: bold;}
+h4 {font-size:$font*1.3; font-weight: bold;}
 
 .upper {text-transform:uppercase;}
 
@@ -294,8 +294,14 @@ footer {
 		color:$dark;
 	}
 	#legal {
+		margin-top:40px;		
+		padding: 10px;
+		box-shadow:5px 5px 10px #bbb, -2px -2px 79px #ffd inset;
+		-mox-box-shadow:5px 5px 10px #bbb, -2px -2px 79px #ffd inset;
+		-webkit-box-shadow:5px 5px 10px #bbb, -2px -2px 79px #ffd inset;
+
 		h3 {
-		margin:40px 0 5px 0;
+		margin:5px 0;
 		}
 	}
 	}
@@ -428,7 +434,7 @@ h3 {
 	font-family:AvantGarde, Helvetica,Arial, Sans-serif;
 }
 .twtr-tweet-wrap {
-	padding: 6px 0;
+	padding: 6px 0!important;
 }
 
 /*
@@ -440,7 +446,7 @@ h3 {
 
 #gets {
 	h3 {
-		margin-bottom:1em;
+		margin-bottom:10px;
 
 	}
 	margin:0 0 30px 0;
