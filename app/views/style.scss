@@ -90,22 +90,7 @@ table {
 		box-shadow: (1px * $i) (1px * $i) $color;
 
 	} 
-
-
-
 }
-
-!deep = 1;
-    !foo = #000
-    @if !i == 1
-        !bg_color = #009832
-    @if !i == 2
-        !bg_color = #195889
-
-    #bar#{!i} 
-        color: #{!foo}
-        background-color: #{!bg_color}
-
 
 
 //////////
