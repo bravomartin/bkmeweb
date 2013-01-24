@@ -1,8 +1,11 @@
 require 'bundler'
 Bundler.require
 require 'sinatra/url_for'
-
+require 'yaml'
 # DataMapper.auto_upgrade!
+
+yaml = YAML.load_file "keys.yaml"
+
 
 configure do |c|
   enable :sessions # sessions = {:username => "Clay"}   sessions[:username]

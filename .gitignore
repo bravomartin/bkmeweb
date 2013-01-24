@@ -5,3 +5,4 @@ _OLD/*
 .sass-cache/
 keys.rb
 Gemfile.lock
+*.yaml

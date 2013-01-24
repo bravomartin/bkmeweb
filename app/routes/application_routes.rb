@@ -2,10 +2,10 @@
 before do
   cache_control :public, :must_revalidate, :max_age => 60*60*24
 	
-  config = {:server => ENV['MONGOLAB_SERVER'] ||  MONGOLAB_SERVER,
-	              :port => ENV['MONGOLAB_PORT'] || MONGOLAB_PORT ,
-								:user =>ENV['MONGOLAB_USER'] || MONGOLAB_USER ,
-								:password => ENV['MONGOLAB_PASS'] || MONGOLAB_PASS,
+  config = {:server => ENV['MONGOLAB_SERVER'] ||  yaml['mongolab_server'],
+	              :port => ENV['MONGOLAB_PORT'] || yaml['mongolab_port'] ,
+								:user =>ENV['MONGOLAB_USER'] || yaml['mongolab_user'] ,
+								:password => ENV['MONGOLAB_PASS'] || yaml['mongolab_pass'],
 								:db => "bkme"
 								}
 								
@@ -94,8 +94,8 @@ post '/receive/?' do
 # end
 
   AWS::S3::Base.establish_connection!(
-      :access_key_id     => ENV['AWS_ID'] || AWS_ID,
-      :secret_access_key => ENV['AWS_SECRET'] || AWS_SECRET
+      :access_key_id     => ENV['AWS_ID'] || yaml['aws_id'],
+      :secret_access_key => ENV['AWS_SECRET'] || yaml['aws_secret']
     )
   
   AWS::S3::S3Object.store('test/'+name+'.jpg', Base64.decode64(imgBase64), 'img.bkme.org', :access => :public_read)
